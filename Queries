@@ -1,7 +1,7 @@
-##📌 1. Data Analysis (Read Queries)
-View all employees
+# 📌 1. Data Analysis (Read Queries)
+## View all employees
 db.sal.find().pretty()
-
+--
 Find employees by department, designation, salary range
 db.sal.find({DEPT:"HR"}).pretty()
 db.sal.find({DESI:"Manager"}).pretty()
