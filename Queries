@@ -1,13 +1,13 @@
-# 📌 1. Data Analysis (Read Queries)
-## View all employees
+📌 1. Data Analysis (Read Queries)
+View all employees
 db.sal.find().pretty()
---
+==
 Find employees by department, designation, salary range
 db.sal.find({DEPT:"HR"}).pretty()
 db.sal.find({DESI:"Manager"}).pretty()
 db.sal.find({SALARY: {$gte:50000,$lte:100000}}).pretty()
 db.sal.find({DEPT:"IT", DESI:"Executive", SALARY: {$gte:40000, $lte:80000}}).pretty()
-
+==
 Sort by salary or department
 db.sal.find().sort({SALARY:1}).pretty()
 db.sal.find().sort({SALARY:-1}).pretty()
@@ -20,7 +20,7 @@ db.sal.find().sort({DEPT:1, SALARY:-1}).pretty()
 Promote roles (e.g., Executive → Sr. Executive)
 db.sal.updateMany({DESI:"Director"}, {$set: {DESI:"Sr. Director"}})
 db.sal.find({DESI:"Sr. Director"}).pretty()
-
+==
 Increase salary by % for a specific department
 db.sal.updateMany({DEPT:"IT"}, {$mul:{SALARY:1.10}})
 db.sal.find({DEPT:"IT"}).pretty()
@@ -29,10 +29,10 @@ db.sal.find({DEPT:"IT"}).pretty()
 📌 3. Aggregation & Reporting
 Dept-wise average salary
 db.sal.aggregate([{$group:{_id:"$DEPT", avgSalary:{$avg:"$SALARY"}}}])
-
+==
 Total employees per designation
 db.sal.aggregate([{$group:{_id:"$DESI", totalEmployees:{$sum:1}}}])
-
+==
 Highest paid employee per dept
 db.sal.aggregate([{$sort:{SALARY:-1}}, {$group: {_id:"$DEPT", topEID:{$first:"$EID"}, topDESI: {$first:"$DESI"}, topSALARY: {$first:"$SALARY"}}}])
 -----------------------------------------------------------------------------------------------------------
@@ -40,13 +40,13 @@ db.sal.aggregate([{$sort:{SALARY:-1}}, {$group: {_id:"$DEPT", topEID:{$first:"$E
 📌 4. Exporting
 Export filtered data to CSV using mongoexport
 mongoexport --db=test --collection=sal --type=csv --fields=EID,DEPT,DESI,SALARY --query="{\"DEPT\":\"HR\"}" --out="D:\Data Base\MongoDB_Project_File\hr_employees.csv"
-
+==
 All employees	
 Remove --query
-
+==
 Salary > 1,00,000	
 --query="{\"SALARY\": {\"$gt\": 100000}}"
-
+==
 By Designation	
 --query="{\"DESI\": \"Manager\"}"
 
