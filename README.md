@@ -72,11 +72,13 @@ To build a system that helps HR and leadership teams:
    mongodb-employee-management/
 
 4. Import the dataset:
+   ```bash
    mongoimport --db test --collection sal --type=csv --headerline --file=emp_sal.csv
 
-5. Run commands using MongoDB Shell
+6. Run commands using MongoDB Shell
 
-6. Export filtered data using:
+7. Export filtered data using:
+   ```bash
    mongoexport \
   --db=test --collection=sal --type=csv \
   --fields=EID,DEPT,DESI,SALARY \
