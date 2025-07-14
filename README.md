@@ -37,7 +37,9 @@ db.sal.find().pretty()
 db.sal.find({ DEPT: "HR" }).pretty()
 db.sal.find({ SALARY: { $gte: 50000, $lte: 100000 } }).pretty()
 
-🔄 UPDATES
+### 🔄 UPDATES
+
+
 js
 Copy
 Edit
