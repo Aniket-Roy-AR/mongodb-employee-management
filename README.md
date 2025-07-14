@@ -1,85 +1,49 @@
-💼 MongoDB Employee Management System
-📊 Complete NoSQL project using MongoDB Shell with CRUD, Aggregation & Export Operations
+# 📘 MongoDB Employee Management System
 
-🔍 Overview
-This project simulates a real-world Employee Management System using MongoDB Shell, showcasing core operations like:
+A practical shell-based MongoDB project that simulates a real-world HR system to manage employees — view data, update records, perform aggregations, and export reports.
 
-🔎 View & filter employee records
+---
 
-✍️ Update roles and salaries
+## 🔧 Tools Used
 
-📊 Generate department-wise reports
+- MongoDB Shell (v5.0)
+- CMD / Terminal
+- MongoImport & MongoExport
+- VS Code (for script management)
 
-📤 Export filtered data using mongoexport
+---
 
-Built for hands-on practice with real commands on a realistic dataset (emp_sal.csv).
+## 💡 Features
 
-📸 Screenshots
-🔍 Find Queries	📊 Aggregations
+- 🔍 Filter by department, designation, or salary
+- ✍️ Promote employees and apply salary hikes
+- 📊 Generate reports (avg salary, highest paid, count)
+- 📤 Export filtered records as CSV
 
-🧮 Sort & Update	📤 Exporting
+---
 
-📁 Project Structure
-java
-Copy
-Edit
-mongodb-employee-management/
-├── emp_sal.csv               ← Main dataset
-├── queries/
-│   ├── read_queries.js       ← db.find() operations
-│   ├── update_queries.js     ← Promotions & salary updates
-│   └── agg_queries.js        ← Aggregation pipelines
-├── exports/                  ← CSV exports via mongoexport
-│   └── hr_employees.csv
-├── screenshots/              ← Terminal screenshot assets
-└── README.md
-🧪 Sample Commands
-🔎 Find & Filter
-js
-Copy
-Edit
-db.sal.find().pretty()
-db.sal.find({ DEPT: "HR" }).pretty()
-db.sal.find({ SALARY: { $gte: 50000, $lte: 100000 } }).pretty()
-🧾 Sorting
-js
-Copy
-Edit
-db.sal.find().sort({ SALARY: -1 }).pretty()
-db.sal.find().sort({ DEPT: 1, SALARY: -1 }).pretty()
-✍️ Update Records
-js
-Copy
-Edit
-// Promote Executives
-db.sal.updateMany({ DESI: "Executive" }, { $set: { DESI: "Sr. Executive" } })
+## 🖼️ Screenshots
 
-// Raise salary by 10% in IT
-db.sal.updateMany({ DEPT: "IT" }, { $mul: { SALARY: 1.10 } })
-📊 Aggregation Reports
-js
-Copy
-Edit
-// Avg salary per department
-db.sal.aggregate([
-  { $group: { _id: "$DEPT", avgSalary: { $avg: "$SALARY" } } }
-])
+| View Queries | Aggregation |
+|--------------|-------------|
+| ![Find All](Find_All_Query.png) | ![Aggregation](Aggregation.png) |
+| ![Find](Find_Query.png) | |
 
-// Top paid employee per dept
-db.sal.aggregate([
-  { $sort: { SALARY: -1 } },
-  {
-    $group: {
-      _id: "$DEPT",
-      topEID: { $first: "$EID" },
-      topSALARY: { $first: "$SALARY" }
-    }
-  }
-])
-📤 Export Filtered Data
-bash
-Copy
-Edit
+| Sort & Update | Export |
+|----------------|--------|
+| ![Sort](Sort_Query.png) | ![Export](Exporting.png) |
+| ![Update](UpdateMany_Modify.png) | |
+
+---
+
+## 🚀 How to Use
+
+1. Clone the repo  
+2. Use `mongoimport` to load `emp_sal.csv`  
+3. Run queries using the MongoDB shell  
+4. Use `mongoexport` for CSV generation
+
+```bash
 mongoexport --uri="mongodb://localhost:27017" \
   --db=test --collection=sal --type=csv \
   --fields=EID,DEPT,DESI,SALARY \
