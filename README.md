@@ -1,45 +1,48 @@
-# 🐘 MongoDB Employee Management System
-
-![GitHub top language](https://img.shields.io/github/languages/top/Aniket-Roy-AR/mongodb-employee-management) \
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Aniket -Roy-AR/mongodb-employee-management) \
-![GitHub issues](https://img.shields.io/github/issues/Aniket -Roy-AR/mongodb-employee-management)
+# 💼 MongoDB Employee Management System
+> A complete CRUD + Aggregation + Export project using MongoDB Shell
 
 ---
 
-## 🔍 Project Overview
+## 🔍 Project Summary
 
-A lightweight, yet powerful system that demonstrates modern MongoDB operations on a real-world employee dataset. Includes data querying, modification, reporting, and export functionality — exactly what a MongoDB-powered backend project needs.
+This project simulates a real-world employee management system using MongoDB shell.  
+You can view, filter, update, aggregate, and export employee data using pure NoSQL commands.
 
-**🚀 Features:**  
-- 👁️ View/filter employee records runtime  
-- 🔧 Promote roles, apply salary increments by department  
-- 📊 Generate reports: avg salary by department, top earners, headcounts  
-- 💾 Export filtered results to CSV via CLI  
-- 🧾 Real dataset (~95 records), code organization, structured docs
+🔧 Built with practical hands-on CLI operations  
+📁 Based on a realistic HR dataset (`emp_sal.csv`)  
+📊 Designed to demonstrate data analytics with MongoDB
 
 ---
 
-## 🗂️ Table of Contents
+## 📸 Screenshots Preview
 
-1. [Demo & Screenshots](#demo--screenshots)  
-2. [Project Structure](#project-structure)  
-3. [Getting Started](#getting-started)  
-4. [Query Samples](#query-samples)  
-5. [Aggregation & Reporting](#aggregation--reporting)  
-6. [Exporting CSV via `mongoexport`](#exporting-csv-via-mongoexport)  
-7. [Tech Stack & Tools](#tech-stack--tools)  
-8. [Future Enhancements](#future-enhancements)  
-9. [Contact & Connect](#contact--connect)
+| 🧾 Find Queries | 📊 Aggregation Queries |
+|----------------|------------------------|
+| ![Find All](screenshots/Find%20All%20Query.png) | ![Aggregation](screenshots/Aggregation.png) |
+| ![Find Filtered](screenshots/Find%20Query.png) |                        |
 
----
-
-## 📸 Demo & Screenshots
-
-🛠️ Here's how your shell log will look after running queries:
-
-![Terminal Demo](screenshots/terminal_output.png)
+| 🧮 Sort & Update | 📤 Exporting Data |
+|------------------|------------------|
+| ![Sort](screenshots/Sort%20Query.png) | ![Export](screenshots/Exporting.png) |
+| ![UpdateMany](screenshots/UpdateMany%20Modify.png) | |
 
 ---
 
-## 🗃️ Project Structure
+## 🔍 Core MongoDB Features Used
 
+### 🧾 FIND & FILTER
+
+```js
+db.sal.find().pretty()
+db.sal.find({ DEPT: "HR" }).pretty()
+db.sal.find({ SALARY: { $gte: 50000, $lte: 100000 } }).pretty()
+
+🔄 UPDATES
+js
+Copy
+Edit
+// Promote Executives
+db.sal.updateMany({ DESI: "Executive" }, { $set: { DESI: "Sr. Executive" } })
+
+// Raise IT salaries by 10%
+db.sal.updateMany({ DEPT: "IT" }, { $mul: { SALARY: 1.10 } })
