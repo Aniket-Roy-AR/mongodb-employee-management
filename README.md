@@ -79,9 +79,5 @@ To build a system that helps HR and leadership teams:
 
 7. Export filtered data using:
    ```bash
-   mongoexport \
-  --db=test --collection=sal --type=csv \
-  --fields=EID,DEPT,DESI,SALARY \
-  --query="{\"DEPT\":\"HR\"}" \
-  --out="exports/hr_employees.csv"
+   mongoexport --db=test --collection=sal --type=csv --fields=EID,DEPT,DESI,SALARY --query="{\"DEPT\":\"HR\"}" --out="D:\Data Base\MongoDB_Project_File\hr_employees.csv"
 
