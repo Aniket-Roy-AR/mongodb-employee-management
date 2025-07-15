@@ -101,3 +101,11 @@ To build a system that helps HR and leadership teams:
 
 - Decision-makers export and analyze filtered records
 
+---
+
+## 🙋‍♂️ About Me
+
+👤 **Aniket Roy**  
+🎯 Business Analyst (SQL + Excel + Power BI + Tableau Learner + MongoDB)  
+📬 aroy72325@gmail.com
+🔗 www.linkedin.com/in/aniket-roy-00251b214
