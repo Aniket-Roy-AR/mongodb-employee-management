@@ -106,6 +106,6 @@ To build a system that helps HR and leadership teams:
 ## 🙋‍♂️ About Me
 
 👤 **Aniket Roy**  
-🎯 Business Analyst (SQL + Excel + Power BI + Tableau Learner + MongoDB)  
+🎯 Business Analyst (Excel + SQL + MongoDB + Tableau + Power BI)  
 📬 aroy72325@gmail.com
 🔗 www.linkedin.com/in/aniket-roy-00251b214
