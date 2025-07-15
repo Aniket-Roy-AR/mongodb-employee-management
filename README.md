@@ -88,3 +88,16 @@ To build a system that helps HR and leadership teams:
 - File: emp_sal.csv
 
 - Fields: EID, NAME, DEPT, DESI, SALARY, DOJ, CITY
+
+---
+
+## 💼 Business Value
+
+### This MongoDB project can help:
+
+- HR teams promote and track employees
+
+- Finance teams view department-wise salary insights
+
+- Decision-makers export and analyze filtered records
+
