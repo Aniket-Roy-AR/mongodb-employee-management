@@ -81,3 +81,10 @@ To build a system that helps HR and leadership teams:
    ```bash
    mongoexport --db=test --collection=sal --type=csv --fields=EID,DEPT,DESI,SALARY --query="{\"DEPT\":\"HR\"}" --out="D:\Data Base\MongoDB_Project_File\hr_employees.csv"
 
+---
+
+## 📚 Data Source
+
+- File: emp_sal.csv
+
+- Fields: EID, NAME, DEPT, DESI, SALARY, DOJ, CITY
